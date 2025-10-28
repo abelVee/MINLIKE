@@ -11,9 +11,9 @@ interface Docente {
 const DocentesList: React.FC = () => {
   const [docentes, setDocentes] = useState<Docente[]>([]);
   const API_URL = process.env.REACT_APP_API_URL;
-  
+
   useEffect(() => {
-   axios.get(`${process.env.REACT_APP_API_URL}/api/docentes`)
+   axios.get(`${API_URL}/api/docentes`)
   .then(res => setDocentes(res.data))
   .catch(err => console.error(err));
   }, []);

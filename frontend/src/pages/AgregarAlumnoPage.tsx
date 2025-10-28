@@ -13,11 +13,11 @@ const AgregarAlumnoPage: React.FC = () => {
   e.preventDefault();
 
   try {
-    await axios.post(`${API_URL}/api/alumnos`, {
-      nombre,
-      correo,
-      materiainscrita,
-    });
+ await axios.post(`${API_URL}/api/alumnos`, {
+  nombre,
+  correo,
+  materiainscrita,
+});
 
     setMensaje('Alumno agregado correctamente');
     setNombre('');
