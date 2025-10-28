@@ -9,13 +9,13 @@ import { Alumno } from './alumnos/alumno.entity';
   imports: [
     TypeOrmModule.forRoot({
       type: 'postgres',
-      host: 'localhost',
-      port: 5432,
-      username: 'postgres',
-      password: 'Sentinela170204',
-      database: 'asesorias',
+      host: process.env.DB_HOST,
+      port: Number(process.env.DB_PORT),
+      username: process.env.DB_USER,
+      password: process.env.DB_PASS,
+      database: process.env.DB_NAME,
       entities: [Docente, Alumno],
-      synchronize: true, // solo para desarrollo
+      synchronize: true, // solo para desarrollo, en producción evalúa poner false
     }),
     DocentesModule,
     AlumnosModule,
