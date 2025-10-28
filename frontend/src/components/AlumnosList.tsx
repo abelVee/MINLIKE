@@ -10,11 +10,12 @@ interface Alumno {
 
 const AlumnosList: React.FC = () => {
   const [alumnos, setAlumnos] = useState<Alumno[]>([]);
+  const API_URL = process.env.REACT_APP_API_URL;
 
   useEffect(() => {
-    axios.get('http://localhost:3001/api/alumnos')
-      .then(res => setAlumnos(res.data))
-      .catch(err => console.error(err));
+  axios.get(`${process.env.REACT_APP_API_URL}/api/alumnos`)
+  .then(res => setAlumnos(res.data))
+  .catch(err => console.error(err));
   }, []);
 
   return (

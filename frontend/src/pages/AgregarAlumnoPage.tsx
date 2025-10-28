@@ -7,26 +7,28 @@ const AgregarAlumnoPage: React.FC = () => {
   const [correo, setCorreo] = useState('');
   const [materiainscrita, setMateriaInscrita] = useState('');
   const [mensaje, setMensaje] = useState('');
+  const API_URL = process.env.REACT_APP_API_URL;
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+ const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
 
-    try {
-      await axios.post('http://localhost:3001/api/alumnos', {
-        nombre,
-        correo,
-        materiainscrita,
-      });
+  try {
+    await axios.post(`${API_URL}/api/alumnos`, {
+      nombre,
+      correo,
+      materiainscrita,
+    });
 
-      setMensaje('Alumno agregado correctamente');
-      setNombre('');
-      setCorreo('');
-      setMateriaInscrita('');
-    } catch (error) {
-      console.error(error);
-      setMensaje('Error al agregar alumno');
-    }
-  };
+    setMensaje('Alumno agregado correctamente');
+    setNombre('');
+    setCorreo('');
+    setMateriaInscrita('');
+  } catch (error) {
+    console.error(error);
+    setMensaje('Error al agregar alumno');
+  }
+};
+
 
   return (
     <div style={{ padding: '20px' }}>
